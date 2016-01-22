@@ -1,0 +1,38 @@
+<% if doctor_signed_in? %>
+  <%= current_doctor.name %>
+  <%= link_to "edit", edit_doctor_registration_path %> |
+  <%= link_to "sign out", destroy_doctor_session_path, method: :delete %>
+
+  <br>
+  <h3>list of clinics </h3>
+    <% @clinics.each do |clinic| %>
+      <%= clinic.name %> -- <%= clinic.email %> <br>
+    <% end %>
+  <br>
+<% else %>
+  <%= link_to "Login as a Doctor",  new_doctor_session_path %>
+<% end %>
+
+<br>
+<% if admin_signed_in? %>
+  Admin: <%= current_admin.email %> <br>
+  <%= link_to "edit", edit_admin_registration_path %> |
+  <%= link_to "sign out", destroy_admin_session_path, method: :delete %> <br>
+  <a href="/interface-for-admin">GOTO admin view</a>
+<% else %>
+
+
+  <%= link_to "Login as a Admin",  new_admin_session_path %>
+<% end %>
+
+
+
+<br>
+
+<!-- <# @file_list.each do |file| %>
+  <%# file %> <br>
+<%# end %> -->
+List of doctors <br>
+<% @doctors.each do |a| %>
+  <%= a.name %> <br>
+<% end %>
