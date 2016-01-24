@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
 
+  get 'specializations/index'
+
+  # get 'doctor_clinic/index'
+
   mount RailsAdmin::Engine => '/interface-for-admin', as: 'rails_admin'
   devise_for :admins
   devise_for :doctors, :controllers => { :registrations => "registrations"}
@@ -11,6 +15,8 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
    root 'home_pages#index'
 
+   resources :doctor_clinic
+   resources :doctor_specialization
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

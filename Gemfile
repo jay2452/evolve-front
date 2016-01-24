@@ -56,3 +56,6 @@ gem 'rails_admin'
 
 gem 'cancancan'
 gem 'rolify'
+
+gem 'bootstrap-sass'
+gem "font-awesome-rails"
