@@ -6,7 +6,12 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+
+Admin.destroy_all
 Specialization.destroy_all
+
+admin = Admin.create!(email: "admin@evolve.com", password: "987654321")
+admin.add_role "admin"
 
 Specialization.create(detail: "ENT")
 Specialization.create(detail: "Audiologist")
