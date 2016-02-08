@@ -4,4 +4,6 @@ class Clinic < ActiveRecord::Base
 
   has_many :doctor_clinic
   has_many :doctors, through: :doctor_clinic
+
+  has_many :appointments
 end

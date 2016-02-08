@@ -1,46 +1,19 @@
-
 <% if doctor_signed_in? %>
-  <%= current_doctor.name %>
-  <%= link_to "edit", edit_doctor_registration_path %> |
-  <%= link_to "sign out", destroy_doctor_session_path, method: :delete %>
-
-  <br>
-  <h3>list of clinics </h3>
-    <% @clinics.each do |clinic| %>
-      <%= clinic.name %> -- <%= clinic.email %> <br>
-    <% end %>
-  <br>
-
-  <div class="container">
-    <h4>Add clinics to your profile <%= link_to "click here", doctor_clinic_index_path %> </h4>
-    <h4>Add specializations to your profile <%= link_to "click here", doctor_specialization_index_path %> </h4>
-  </div>
-
-
-<% else %>
-  <%= link_to "Login as a Doctor",  new_doctor_session_path %>
+  <%= render partial: '/home_pages/doctor' %>
 <% end %>
 
-<br>
 <% if admin_signed_in? %>
   Admin: <%= current_admin.email %> <br>
   <%= link_to "edit", edit_admin_registration_path %> |
   <%= link_to "sign out", destroy_admin_session_path, method: :delete %> <br>
   <a href="/interface-for-admin">GOTO admin view</a>
-<% else %>
 
-
-  <%= link_to "Login as a Admin",  new_admin_session_path %>
 <% end %>
-
-
-
-<br>
 
 <!-- <# @file_list.each do |file| %>
   <%# file %> <br>
 <%# end %> -->
-List of doctors <br>
+<!-- List of doctors <br>
 <% @doctors.each do |a| %>
   <%= a.name %> <br>
-<% end %>
+<% end %> -->

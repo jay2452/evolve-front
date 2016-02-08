@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160123094118) do
+ActiveRecord::Schema.define(version: 20160207103046) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,15 +49,17 @@ ActiveRecord::Schema.define(version: 20160123094118) do
   add_index "admins_roles", ["admin_id", "role_id"], name: "index_admins_roles_on_admin_id_and_role_id", using: :btree
 
   create_table "appointments", force: :cascade do |t|
-    t.integer  "doctor_id",                                null: false
-    t.integer  "clinic_id",                                null: false
-    t.string   "email",            limit: 255,             null: false
-    t.datetime "appointment_time",                         null: false
-    t.string   "phone",            limit: 20,              null: false
-    t.string   "name",             limit: 255,             null: false
+    t.integer  "doctor_id",                                    null: false
+    t.integer  "clinic_id",                                    null: false
+    t.string   "email",            limit: 255,                 null: false
+    t.datetime "appointment_time",                             null: false
+    t.string   "phone",            limit: 20,                  null: false
+    t.string   "name",             limit: 255,                 null: false
     t.text     "description"
     t.string   "otp",              limit: 5
-    t.integer  "verified",                     default: 0, null: false
+    t.integer  "verified",                     default: 0,     null: false
+    t.integer  "user_id"
+    t.boolean  "cancel",                       default: false
   end
 
   create_table "clinic_facilities", force: :cascade do |t|
@@ -137,6 +139,50 @@ ActiveRecord::Schema.define(version: 20160123094118) do
   add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id", using: :btree
   add_index "roles", ["name"], name: "index_roles_on_name", using: :btree
 
+  create_table "school_activities", force: :cascade do |t|
+    t.string "activity_name", limit: 255, null: false
+  end
+
+  create_table "school_affiliations", force: :cascade do |t|
+    t.string "affiliation", limit: 255, null: false
+  end
+
+  create_table "school_images", force: :cascade do |t|
+    t.string "image_url"
+  end
+
+  create_table "school_school_activity", force: :cascade do |t|
+    t.integer "school_id"
+    t.integer "school_activity_id"
+  end
+
+  create_table "school_school_affiliation", force: :cascade do |t|
+    t.integer "school_id"
+    t.integer "school_affiliation_id"
+  end
+
+  create_table "school_school_type", force: :cascade do |t|
+    t.integer "school_id"
+    t.integer "school_type_id"
+  end
+
+  create_table "school_types", force: :cascade do |t|
+    t.string "type_name", limit: 255, null: false
+  end
+
+  create_table "schools", force: :cascade do |t|
+    t.string "name",           limit: 255, null: false
+    t.text   "description"
+    t.text   "fee_structure"
+    t.string "logo_url",       limit: 255
+    t.string "contact_no",     limit: 255
+    t.string "email",          limit: 255
+    t.string "x_coord",        limit: 255
+    t.string "y_coord",        limit: 255
+    t.text   "address"
+    t.string "principal_name", limit: 255
+  end
+
   create_table "specializations", force: :cascade do |t|
     t.string "detail", limit: 255, null: false
   end
@@ -164,4 +210,10 @@ ActiveRecord::Schema.define(version: 20160123094118) do
   add_foreign_key "doctor_specialization", "doctors", name: "doctor_specialization_doctor_id_foreign"
   add_foreign_key "doctor_specialization", "specializations", column: "spec_id", name: "doctor_specialization_spec_id_foreign"
   add_foreign_key "photos", "users", name: "photos_user_id_foreign", on_delete: :cascade
+  add_foreign_key "school_school_activity", "school_activities"
+  add_foreign_key "school_school_activity", "schools"
+  add_foreign_key "school_school_affiliation", "school_affiliations"
+  add_foreign_key "school_school_affiliation", "schools"
+  add_foreign_key "school_school_type", "school_types"
+  add_foreign_key "school_school_type", "schools"
 end

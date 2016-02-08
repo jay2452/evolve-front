@@ -1,0 +1,22 @@
+<div class="container">
+  <div>
+    <div class="row">
+      <h6>doctor specializations : </h6>
+      <% current_doctor.specializations.each do |specialization| %>
+        <%= specialization.detail %> <br>
+      <% end %>
+    </div>
+
+    <h3>Add clinics</h3>
+      <%= form_tag({controller: "doctor_specialization", action: "create"}, method: :post) do %>
+        <%= submit_tag("add") %>
+        <% @remaining_specializations.each do |specialization| %>
+          <br>
+          <%= specialization.detail %>
+          <%= check_box_tag(:"#{specialization.id}") %>
+        <% end %>
+        <br>
+
+      <% end %>
+  </div>
+</div>

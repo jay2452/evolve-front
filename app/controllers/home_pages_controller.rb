@@ -16,5 +16,7 @@ class HomePagesController < ApplicationController
     puts "================================"
       p @doctors
     puts "================================"
+
+    @appointments = current_doctor.appointments if current_doctor
   end
 end

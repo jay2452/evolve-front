@@ -9,4 +9,7 @@ class Doctor < ActiveRecord::Base
 
   has_many :doctor_specialization
   has_many :specializations, through: :doctor_specialization
+
+  has_many :users, through: :appointments
+  has_many :appointments
 end

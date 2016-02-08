@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   # get 'doctor_clinic/index'
 
+
   mount RailsAdmin::Engine => '/interface-for-admin', as: 'rails_admin'
   devise_for :admins
   devise_for :doctors, :controllers => { :registrations => "registrations"}
@@ -16,7 +17,16 @@ Rails.application.routes.draw do
    root 'home_pages#index'
 
    resources :doctor_clinic
+   resources :appointments do
+     member do
+       get 'cancel_appointment'
+     end
+   end
+
    resources :doctor_specialization
+
+
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

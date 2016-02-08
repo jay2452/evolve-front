@@ -8,10 +8,33 @@
 </head>
 <body>
 
-  <% if doctor_signed_in? %>
-    logged in as : <%= current_doctor.name %>
-  <% end %>
+  <nav class="navbar navbar-default">
+   <div class="container-fluid">
+     <div class="navbar-header">
+       <a class="navbar-brand" href="<%= root_path %>">Evolve</a>
+     </div>
+     <ul class="nav navbar-nav navbar-right">
+       <% if doctor_signed_in? %>
 
+          <li><a href="#">logged in as : <%= current_doctor.name %> (doctor) </a></li>
+          <li><%= link_to "edit profile", edit_doctor_registration_path %></li>
+          <li><%= link_to "sign out", destroy_doctor_session_path, method: :delete %></li>
+
+       <% elsif admin_signed_in? %>
+
+          <li><a href="#">logged in as : <%= current_admin.email %> (admin) </a></li>
+          <li><%= link_to "sign out", destroy_admin_session_path, method: :delete %></li>
+
+        <% else %>
+
+           <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+           <li><a href="<%= new_doctor_session_path %>"><span class="glyphicon glyphicon-log-in"></span> Login as doctor</a></li>
+           <li><a href="<%= new_admin_session_path %>"><span class="glyphicon glyphicon-log-in"></span> Login as Admin</a></li>
+
+       <% end %>
+     </ul>
+   </div>
+  </nav>
   <p class="notice"><%= notice %></p>
        <p class="alert"><%= alert %></p>
 

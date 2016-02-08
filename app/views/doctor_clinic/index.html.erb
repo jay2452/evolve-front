@@ -1,0 +1,22 @@
+<div class="container">
+  <div>
+    <div class="row">
+      <h6>clinics in which you are registered with : </h6>
+      <% current_doctor.clinics.each do |clinic| %>
+        <%= clinic.name %> <br>
+      <% end %>
+    </div>
+
+    <h3>Add clinics</h3>
+      <%= form_tag({controller: "doctor_clinic", action: "create"}, method: :post) do %>
+        <%= submit_tag("add") %>
+        <% @remaining_clinics.each do |clinic| %>
+          <br>
+          <%= clinic.name %>
+          <%= check_box_tag(:"#{clinic.id}") %>
+        <% end %>
+        <br>
+
+      <% end %>
+  </div>
+</div>
