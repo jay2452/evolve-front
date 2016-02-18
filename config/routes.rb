@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  devise_for :schools
   get 'specializations/index'
 
   # get 'doctor_clinic/index'

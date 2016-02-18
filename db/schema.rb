@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160207103046) do
+ActiveRecord::Schema.define(version: 20160218093924) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -170,19 +170,6 @@ ActiveRecord::Schema.define(version: 20160207103046) do
     t.string "type_name", limit: 255, null: false
   end
 
-  create_table "schools", force: :cascade do |t|
-    t.string "name",           limit: 255, null: false
-    t.text   "description"
-    t.text   "fee_structure"
-    t.string "logo_url",       limit: 255
-    t.string "contact_no",     limit: 255
-    t.string "email",          limit: 255
-    t.string "x_coord",        limit: 255
-    t.string "y_coord",        limit: 255
-    t.text   "address"
-    t.string "principal_name", limit: 255
-  end
-
   create_table "specializations", force: :cascade do |t|
     t.string "detail", limit: 255, null: false
   end
@@ -211,9 +198,6 @@ ActiveRecord::Schema.define(version: 20160207103046) do
   add_foreign_key "doctor_specialization", "specializations", column: "spec_id", name: "doctor_specialization_spec_id_foreign"
   add_foreign_key "photos", "users", name: "photos_user_id_foreign", on_delete: :cascade
   add_foreign_key "school_school_activity", "school_activities"
-  add_foreign_key "school_school_activity", "schools"
   add_foreign_key "school_school_affiliation", "school_affiliations"
-  add_foreign_key "school_school_affiliation", "schools"
   add_foreign_key "school_school_type", "school_types"
-  add_foreign_key "school_school_type", "schools"
 end
