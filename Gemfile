@@ -48,8 +48,6 @@ group :development do
   gem 'spring'
 end
 
-gem 'omniauth'
-
 gem 'httparty'
 
 gem 'devise'
