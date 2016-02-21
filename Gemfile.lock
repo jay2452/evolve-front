@@ -104,7 +104,6 @@ GEM
     nokogiri (1.6.7.1)
       mini_portile2 (~> 2.0.0.rc2)
     orm_adapter (0.5.0)
-    pg (0.18.3)
     puma (2.14.0)
     rack (1.6.4)
     rack-pjax (0.8.0)
@@ -213,7 +212,6 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   mysql2
-  pg
   puma
   rails (= 4.2.4)
   rails_12factor
