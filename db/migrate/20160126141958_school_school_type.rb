@@ -6,6 +6,6 @@ class SchoolSchoolType < ActiveRecord::Migration
     end
 
     add_foreign_key :school_school_type, :school_types, dependent: :delete
-    add_foreign_key :school_school_type, :schools, dependent: :delete
+    
   end
 end

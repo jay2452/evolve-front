@@ -6,6 +6,6 @@ class SchoolSchoolActivity < ActiveRecord::Migration
     end
 
     add_foreign_key :school_school_activity, :school_activities, dependent: :delete
-    add_foreign_key :school_school_activity, :schools, dependent: :delete
+    
   end
 end

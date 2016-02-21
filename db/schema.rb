@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160221070130) do
+ActiveRecord::Schema.define(version: 20160221073058) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -216,6 +216,9 @@ ActiveRecord::Schema.define(version: 20160221070130) do
   add_foreign_key "doctor_specialization", "specializations", column: "spec_id", name: "doctor_specialization_spec_id_foreign"
   add_foreign_key "photos", "users", name: "photos_user_id_foreign", on_delete: :cascade
   add_foreign_key "school_school_activity", "school_activities"
+  add_foreign_key "school_school_activity", "schools"
   add_foreign_key "school_school_affiliation", "school_affiliations"
+  add_foreign_key "school_school_affiliation", "schools"
   add_foreign_key "school_school_type", "school_types"
+  add_foreign_key "school_school_type", "schools"
 end

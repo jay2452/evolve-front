@@ -33,9 +33,12 @@ development:
     pool: 5
 
 production:
-    adapter:  postgresql
-    database: dqd2lcsvh964a
-    username: kenfpksxpuwlmx
-    password: 95VBaLQWsACBN8MyDJB1mmIPpY
-    host: ec2-54-83-194-117.compute-1.amazonaws.com
+    adapter: mysql2
+    encoding: utf8
     pool: 5
+    username: root
+    password:
+    socket: /var/run/mysqld/mysqld.sock
+    database: evolve
+    username: root
+    password:
