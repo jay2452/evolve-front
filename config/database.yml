@@ -40,5 +40,5 @@ production:
     encoding: utf8
     database: evolve_production
     pool: 5
-    username: pguser
+    username: evolve_user
     password: 987654321
