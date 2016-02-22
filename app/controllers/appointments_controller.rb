@@ -7,8 +7,8 @@ class AppointmentsController < ApplicationController
     if @appointment.doctor.id == current_doctor.id
       @appointment.cancel = true
       @appointment.save
-    else
-        notice: 'you are not authorised.'
+    # else
+    #     notice: 'you are not authorised.'
     end
     redirect_to :back
   end
@@ -17,8 +17,8 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.find(params[:id])
     if @appointment.doctor.id == current_doctor.id
       @appointment.destroy
-    else
-        notice: 'you are not authorised.'
+    # else
+    #     notice: 'you are not authorised.'
     end
     redirect_to :back
   end
