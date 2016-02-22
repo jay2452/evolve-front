@@ -99,11 +99,11 @@ GEM
     minitest (5.8.4)
     multi_json (1.11.2)
     multi_xml (0.5.5)
-    mysql2 (0.3.20)
     nested_form (0.3.2)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
     orm_adapter (0.5.0)
+    pg (0.18.4)
     puma (2.16.0)
     rack (1.6.4)
     rack-pjax (0.8.0)
@@ -211,7 +211,7 @@ DEPENDENCIES
   httparty
   jbuilder (~> 2.0)
   jquery-rails
-  mysql2
+  pg
   puma
   rails (= 4.2.4)
   rails_12factor

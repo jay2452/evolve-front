@@ -32,13 +32,13 @@ development:
     host: ec2-54-83-194-117.compute-1.amazonaws.com
     pool: 5
 
+
+
 production:
-    adapter: mysql2
+    adapter:  postgresql
+    host: localhost
     encoding: utf8
+    database: evolve_production
     pool: 5
-    username: root
-    password:
-    socket: /var/run/mysqld/mysqld.sock
-    database: evolve
-    username: root
-    password:
+    username: pguser
+    password: 987654321
