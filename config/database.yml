@@ -38,7 +38,7 @@ production:
     adapter:  postgresql
     host: localhost
     encoding: utf8
-    database: evolve_production
+    database: evolve_prod
     pool: 5
     username: evolve_user
     password: 987654321
