@@ -5,7 +5,5 @@ class SchoolSchoolAffiliation < ActiveRecord::Migration
       t.integer :school_affiliation_id
     end
 
-    add_foreign_key :school_school_affiliation, :school_affiliations, dependent: :delete
-
   end
 end
