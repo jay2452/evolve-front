@@ -1,5 +1,7 @@
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
+
+
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
@@ -8,28 +10,52 @@
     <%= f.text_field :name, autofocus: true %>
   </div>
 
-  <div class="field">
-    <%= f.label :reg_id %><br />
-    <%= f.text_field :reg_id, autofocus: true %>
-  </div>
+  <% if resource_name == :doctor %>
+    <div class="field">
+      <%= f.label :reg_id %><br />
+      <%= f.text_field :reg_id, autofocus: true %>
+    </div>
+  <% end %>
 
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
   </div>
 
-
-
     <div class="field">
       <%= f.label :address %><br />
       <%= f.text_field :address, autofocus: true %>
     </div>
 
-
     <div class="field">
       <%= f.label :description %><br />
       <%= f.text_field :description, autofocus: true %>
     </div>
+
+    <% if resource_name == :school %>
+
+      <div class="field">
+        <%= f.label :x_coord %><br>
+        <%= f.text_field :x_coord %><br>
+        <%= f.label :y_coord %><br>
+        <%= f.text_field :y_coord %>
+      </div>
+
+      <div class="field">
+        <%= f.label :fee_structure %><br>
+        <%= f.text_field :fee_structure %>
+      </div>
+
+      <div class="field">
+        <%= f.label :contact %><br>
+        <%= f.text_field :contact_no %>
+      </div>
+
+      <div class="field">
+        <%= f.label :principal_name %><br>
+        <%= f.text_field :principal_name %>
+      </div>
+    <% end %>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>

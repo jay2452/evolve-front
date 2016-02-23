@@ -10,6 +10,14 @@
 
 <% end %>
 
+
+<% if school_signed_in? %>
+  <%# link_to "Sign out", destroy_school_session_path, method: :delete %>
+  <br>
+  <%= link_to "Edit information", edit_school_registration_path %>
+  <%= render partial: '/home_pages/school' %>
+<% end %>
+
 <!-- <# @file_list.each do |file| %>
   <%# file %> <br>
 <%# end %> -->

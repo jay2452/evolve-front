@@ -25,9 +25,13 @@
           <li><a href="#">logged in as : <%= current_admin.email %> (admin) </a></li>
           <li><%= link_to "sign out", destroy_admin_session_path, method: :delete %></li>
 
-        <% else %>
+      <% elsif school_signed_in? %>
+          <li><a href="#">logged in as : <%= current_school.email %> (school) </a></li>
+          <li><%= link_to "sign out", destroy_school_session_path, method: :delete %></li>
+      <% else %>
 
            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+           <li><a href="<%= new_school_session_path %>"><span class="glyphicon glyphicon-log-in"></span> Login as school</a></li>
            <li><a href="<%= new_doctor_session_path %>"><span class="glyphicon glyphicon-log-in"></span> Login as doctor</a></li>
            <li><a href="<%= new_admin_session_path %>"><span class="glyphicon glyphicon-log-in"></span> Login as Admin</a></li>
 

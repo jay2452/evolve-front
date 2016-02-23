@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  devise_for :schools
+  devise_for :schools, :controllers => { :registrations => "schools/registrations", sessions: 'schools/sessions'}
   get 'specializations/index'
 
   # get 'doctor_clinic/index'
