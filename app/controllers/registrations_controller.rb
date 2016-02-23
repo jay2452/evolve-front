@@ -11,8 +11,7 @@ class RegistrationsController < Devise::RegistrationsController
     end
 
     def account_update_params
-      params.require(:doctor).permit(:name, :email, :current_password,:password_confirmation, :reg_id, :description, :address) if params[:doctor]
-                                  :x_coord, :y_coord, :principal_name)
+      params.require(:doctor).permit(:name, :email, :current_password,:password_confirmation, :reg_id, :description, :address)
 
     end
 end
